@@ -6,7 +6,7 @@
 
 H=5;
 T=8;
-O=correct_read.fasta;
+O=correct_read.fastq;
 
 while getopts f:o:h:t: op
 do 
@@ -37,13 +37,13 @@ awk '{if(NR%2!=0)ORS=" ";else ORS="\n"}1' ${F} > ./rawread.txt
 
 echo "--------------start error correction ";
 
-./smallRNA_propor -k ${H}  -t ${T} -f ./rawread.txt -o ./${O}
+./smallRNA_propor -k ${H}  -t ${T} -f ./rawread.txt 
 
 
-if [ "${O}" != "correct_read.fasta" ]
+if [ "${O}" != "correct_read.fastq" ]
 then 
 	cp correct_read.fastq ${O};
-	rm correct_read.fasta
+	rm correct_read.fastq
 fi
 
 # echo "--------------start  evaluation ";
