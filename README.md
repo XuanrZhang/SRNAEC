@@ -10,40 +10,35 @@ Download
 
 	git clone https://github.com/XuanrZhang/SRNAEC
 	cd SRNAEC
-	make
+	chmod +x SmallRNA.sh
 	
+
 	
-Usage: ./SRNAEC.sh -f [Input_File] -s [k_1] -e [k_end] -t [the number of threads] -o [Output_File] -u [run_type]
+Usage: ./SRNAEC.sh -f [Input_File] -h [threshold] -t [the number of threads] -o [Output_File] 
 
 	Required OPTIONS:
-	-f [File_Name]: miRNA sequence fastq dataset（fastq files）
+	-f [File_Name]: smallRNA sequence fasta dataset（fasta files）
 
 	Optional OPTIONS:
 	-t [the number of threads]: default is 8;
-	-s [k_1]: 8;
-	-e [k_end]: 15;
+	-h [threshold]: 5;
 	-o [Ouput_FileName]: default is correct_read.fastq;
-	[run_type]: default is mix, "-u" for substitution errors only;
-	[cut_adapter]: " -c" to open cutadatper function, use by -c [adapter sequence] (e.g. -c GCCTTGGCACCCGAGAATTCCA);
 	
 Examples: 
 
 	# test using simulated datasets in github folders.
-	./SRNAEC.sh -f ./Data/simulated_data/mix_data/simumD1.fq -s 8 -e 15 -t 26 
-	
-	# test user's datasets (user_input.fq)
-	./SRNAEC.sh -f user_input.fq -s 8 -e 15 -t 26 (correct substitution and indel errors, with threshold_value 5 and k_value from 8 to 15,with 26 threads)
+	./SRNAEC.sh -f ./seq.fasta -h 10  -t 20 -o correct.fasta
 	
 
   
 ## Data format
 Input: A clean miRNA read dataset in fastq format(After adapter cutting)
 
-	- read.fq : store the whole read data needed to be corrected.
+	- read.fa : store the whole read data needed to be corrected.
 	
 Output: A corrected read dataset 
 
-	- correct_read.fq :store corrected read data.
+	- correct_read.fa :store corrected read data.
 	
 ## Data materials
 
