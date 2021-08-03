@@ -10,6 +10,7 @@ Download
 
 	git clone https://github.com/XuanrZhang/SRNAEC
 	cd SRNAEC
+	chmod +x smallRNA_propor
 	chmod +x SmallRNA.sh
 	
 
@@ -27,7 +28,7 @@ Usage: ./SRNAEC.sh -f [Input_File] -h [threshold] -t [the number of threads] -o 
 Examples: 
 
 	# test using simulated datasets in github folders.
-	./SRNAEC.sh -f ./seq.fasta -h 10  -t 20 -o correct.fasta
+	./SmallRNA.sh -h 5  -t 20 -f ./seq.fasta -o correct.fasta
 	
 
   
